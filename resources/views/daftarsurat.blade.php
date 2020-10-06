@@ -86,7 +86,6 @@
             </div>
         </div>
     </div>
-
     
     <!-- Data Table JavaScript -->
     <script>
