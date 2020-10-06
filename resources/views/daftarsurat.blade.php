@@ -28,8 +28,8 @@
   </head>
 
   <body>
-    <div class="container pt-4">
-        <div class="row media mb-3">
+    <div class="container mt-3 pt-3 pb-3">
+        <div class="row media">
             <div class="col-6 col-md-1 text-right">
                 <img class="align-self-center mr-3 logo_pengayoman" src="{{ asset('/img/pengayoman_logo.png') }}" alt="logo pengayoman">
             </div>
@@ -43,7 +43,7 @@
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-2">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mt-3">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -57,31 +57,34 @@
                 </li>
             </div>
         </nav>
-
-        <table id="example" class="table table-responsive table-striped table-bordered" style="max-width:100%">
-        <thead>
-            <tr>
-                <th>Nomor </th>
-                <th>Pengirim</th>
-                <th>Tujuan Surat</th>
-                <th>Instansi Tujuan</th>
-                <th>Tanggal Surat</th>
-                <th>Nomor Surat</th>
-                <th>Perihal Surat</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Subsi Bantuan Hukum dan Penyuluhan</td>
-                <td>Kepala Kanwil Kemenkumham Jatim</td>
-                <td>Kanwil Kemenkumham Jatim</td>
-                <td>20/11/2020</td>
-                <td>W15.PAS.PAS25.PK.01.05.06-1</td>
-                <td>Pembebasan Demi Hukum atas nama Nuriyanto bin Nuri</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="row mt-3">
+            <div class="col-12">
+                <table id="example" class="table table-responsive table-striped table-bordered" style="max-width:100%">
+                    <thead>
+                        <tr>
+                            <th>Nomor </th>
+                            <th>Pengirim</th>
+                            <th>Tujuan Surat</th>
+                            <th>Instansi Tujuan</th>
+                            <th>Tanggal Surat</th>
+                            <th>Nomor Surat</th>
+                            <th>Perihal Surat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Subsi Bantuan Hukum dan Penyuluhan</td>
+                            <td>Kepala Kanwil Kemenkumham Jatim</td>
+                            <td>Kanwil Kemenkumham Jatim</td>
+                            <td>20/11/2020</td>
+                            <td>W15.PAS.PAS25.PK.01.05.06-1</td>
+                            <td>Pembebasan Demi Hukum atas nama Nuriyanto bin Nuri</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
     
