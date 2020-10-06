@@ -13,26 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// user previllage
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/aplikasinomor', function () {
-    return view('index');
+    return view('user_aplikasi');
 });
 
 Route::get('/daftarsurat', function () {
-    return view('daftarsurat');
+    return view('user_daftarsurat');
 });
 
+// admin previllage
 Route::get('/login', function () {
-    return view('login');
+    return view('admin_login');
 });
 
 Route::get('/admin', function () {
-    return view('halamanadmin');
+    return view('admin_daftarsurat');
 });
 
 Route::get('/edit', function () {
-    return view('editsurat');
+    return view('admin_editsurat');
 });
