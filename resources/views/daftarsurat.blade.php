@@ -63,11 +63,11 @@
             <tr>
                 <th>Nomor </th>
                 <th>Pengirim</th>
+                <th>Tujuan Surat</th>
                 <th>Instansi Tujuan</th>
                 <th>Tanggal Surat</th>
                 <th>Nomor Surat</th>
                 <th>Perihal Surat</th>
-                <th>Salary</th>
             </tr>
         </thead>
         <tbody>

@@ -29,3 +29,7 @@ Route::get('/aplikasinomor', function () {
 Route::get('/daftarsurat', function () {
     return view('daftarsurat');
 });
+
+Route::get('/login', function () {
+    return view('login');
+});
