@@ -33,3 +33,11 @@ Route::get('/daftarsurat', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::get('/admin', function () {
+    return view('halamanadmin');
+});
+
+Route::get('/edit', function () {
+    return view('editsurat');
+});

@@ -27,8 +27,8 @@
   </head>
 
   <body>
-    <div class="container mt-3 pt-3 pb-3">
-        <div class="row media">
+    <div class="container">
+        <div class="row media pt-3 pb-3">
             <div class="col-6 col-md-1 text-right">
                 <img class="align-self-center mr-3 logo_pengayoman" src="{{ asset('/img/pengayoman_logo.png') }}" alt="logo pengayoman">
             </div>
@@ -42,21 +42,7 @@
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mt-3">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Nomor Surat <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Daftar Surat</a>
-                </li>
-            </div>
-        </nav>
-        <div class="row mt-3">
+        <div class="row pb-3 pt-3">
             <div class="col-12">
                 <form>
                     <div class="form-group">
@@ -94,17 +80,6 @@
                         </div>
                     </div>
                 </form>
-                <hr width=100% size=100 NOSHADE >
-                <div class="row">
-                    <div class="col text-center">
-                        <h5>Nomor Surat Ini adalah</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col text-center">
-                        <h1>1234</h1>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
