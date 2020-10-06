@@ -31,8 +31,8 @@
   </head>
 
   <body>
-    <div class="container pt-4">
-        <div class="row media mb-5">
+    <div class="container mt-3 pt-3 pb-3">
+        <div class="row media pb-5">
             <div class="col-6 col-md-1 text-right">
                 <img class="align-self-center mr-3 logo_pengayoman" src="{{ asset('/img/pengayoman_logo.png') }}" alt="logo pengayoman">
             </div>
@@ -96,20 +96,12 @@
             </div>
         </div>
     </div>
-
     
     <!-- Data Table JavaScript -->
     <script>
         $(document).ready(function() {
             $('#example').DataTable();
         } );
-    </script>
-
-    <!--Tooltip JavaScript -->
-    <script>
-       $(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
     </script>
 
     <!--Modal JavaScript -->
