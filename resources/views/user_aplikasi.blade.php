@@ -27,7 +27,7 @@
   </head>
 
   <body>
-    <div class="container mt-3 pt-3 pb-3">
+    <div class="container shadow mt-3 pt-3 pb-3 bg-light rounded">
         <div class="row media">
             <div class="col-6 col-md-1 text-right">
                 <img class="align-self-center mr-3 logo_pengayoman" src="{{ asset('/img/pengayoman_logo.png') }}" alt="logo pengayoman">

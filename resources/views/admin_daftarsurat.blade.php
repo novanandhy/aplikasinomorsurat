@@ -31,7 +31,7 @@
   </head>
 
   <body>
-    <div class="container mt-3 pt-3 pb-3">
+    <div class="container shadow mt-3 pt-3 pb-3 bg-light rounded">
         <div class="row media pb-5">
             <div class="col-6 col-md-1 text-right">
                 <img class="align-self-center mr-3 logo_pengayoman" src="{{ asset('/img/pengayoman_logo.png') }}" alt="logo pengayoman">
@@ -46,6 +46,11 @@
                 </div>
             </div>
             <hr/>
+        </div>
+        <div class="row text-right pb-1">
+            <div class="col-md-2 offset-md-10">
+                <button type="button" class="btn btn-primary btn-md"><i class="fa fa-print"></i> Cetak</button>
+            </div>
         </div>
         <table id="example" class="table table-responsive table-striped table-bordered" style="max-width:100%">
             <thead>

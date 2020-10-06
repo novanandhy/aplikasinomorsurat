@@ -34,3 +34,7 @@ Route::get('/admin', function () {
 Route::get('/edit', function () {
     return view('admin_editsurat');
 });
+
+Route::get('/cetak', function () {
+    return view('admin_cetakrekapitulasi');
+});
