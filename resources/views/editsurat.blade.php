@@ -27,8 +27,8 @@
   </head>
 
   <body>
-    <div class="container">
-        <div class="row media pt-3 pb-3">
+    <div class="container mt-3 pt-3 pb-3">
+        <div class="row media">
             <div class="col-6 col-md-1 text-right">
                 <img class="align-self-center mr-3 logo_pengayoman" src="{{ asset('/img/pengayoman_logo.png') }}" alt="logo pengayoman">
             </div>
@@ -42,7 +42,7 @@
                 </div>
             </div>
         </div>
-        <div class="row pb-3 pt-3">
+        <div class="row mt-4">
             <div class="col-12">
                 <form>
                     <div class="form-group">
@@ -76,7 +76,7 @@
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                        <button type="button" class="btn btn-primary btn-lg">Nomor Surat</button>
+                        <button type="button" class="btn btn-primary btn-lg">Perbarui Data</button>
                         </div>
                     </div>
                 </form>
