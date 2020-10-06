@@ -41,6 +41,7 @@
                     <h6 class="mt-0">Rumah Tahanan Negara Kelas I Surabaya</h6>
                 </div>
             </div>
+            <hr/>
         </div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary mt-3">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">

@@ -41,6 +41,7 @@
                     <h6 class="mt-0">Rumah Tahanan Negara Kelas I Surabaya</h6>
                 </div>
             </div>
+            <hr/>
         </div>
         <div class="row mt-5">
             <div class="col-12 text-center">

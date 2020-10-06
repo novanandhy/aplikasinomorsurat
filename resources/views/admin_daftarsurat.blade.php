@@ -45,6 +45,7 @@
                     <h6 class="mt-0">Rumah Tahanan Negara Kelas I Surabaya</h6>
                 </div>
             </div>
+            <hr/>
         </div>
         <table id="example" class="table table-responsive table-striped table-bordered" style="max-width:100%">
             <thead>
