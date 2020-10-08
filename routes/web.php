@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('user_aplikasi');
 });
 
+Route::get('/home', function () {
+    return view('user_homepage');
+});
+
 Route::get('/daftarsurat', function () {
     return view('user_daftarsurat');
 });

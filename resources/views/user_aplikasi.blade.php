@@ -11,6 +11,9 @@
     <!-- Style CSS -->
     <link rel="stylesheet" type ="text/css" href="{{ asset('/css/style.css') }}">
 
+    <!-- import font CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&family=Raleway:wght@700&display=swap" rel="stylesheet">
+
     <!-- Datepicker CSS -->
     <link rel="stylesheet" href="{{ asset('/plugin/datepicker/dist/css/bootstrap-datepicker.min.css') }}">
 
@@ -27,13 +30,13 @@
   </head>
 
   <body>
-    <div class="container shadow mt-3 pt-3 pb-3 bg-light rounded">
+    <div class="container shadow mt-3 pt-3 pb-3">
         <div class="row media">
             <div class="col-6 col-md-1 text-right">
-                <img class="align-self-center mr-3 logo_pengayoman" src="{{ asset('/img/pengayoman_logo.png') }}" alt="logo pengayoman">
+                <img class="align-self-center mr-3 logo-pengayoman" src="{{ asset('/img/pengayoman_logo.png') }}" alt="logo pengayoman">
             </div>
             <div class="col-6 col-md-1 text-left">
-                <img class="align-self-center mr-3 logo_pas" src="{{ asset('/img/pas.png') }}" alt="logo pengayoman">
+                <img class="align-self-center mr-3 logo-pas" src="{{ asset('/img/pas.png') }}" alt="logo pengayoman">
             </div>
             <div class="col-12 col-md-10 text-center">
                 <div class="media-body">
@@ -43,7 +46,7 @@
             </div>
             <hr/>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mt-3">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-blue mt-3">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -57,41 +60,41 @@
                 </li>
             </div>
         </nav>
-        <div class="row mt-3">
-            <div class="col-12">
+        <div class="row mt-3 justify-content-md-center">
+            <div class="col-12 col-md-5">
                 <form>
                     <div class="form-group">
-                        <select class="form-control" id="idPengirim">
-                        <option selected>Pilih Pengirim</option>
-                        <option>Subsi Umum dan Kepegawaian</option>
-                        <option>Subsi Keuangan dan Perlengkapan</option>
-                        <option>Tata Usaha</option>
-                        <option>Pengamanan Rutan</option>
-                        <option>Subsi Registrasi dan Perawatan</option>
-                        <option>Subsi Bantuan Hukum dan Penyuluhan</option>
-                        <option>Subsi Bimbingan Kerja</option>
+                        <select class="form-control text-blue" id="idPengirim">
+                            <option selected>Pilih Pengirim</option>
+                            <option>Subsi Umum dan Kepegawaian</option>
+                            <option>Subsi Keuangan dan Perlengkapan</option>
+                            <option>Tata Usaha</option>
+                            <option>Pengamanan Rutan</option>
+                            <option>Subsi Registrasi dan Perawatan</option>
+                            <option>Subsi Bantuan Hukum dan Penyuluhan</option>
+                            <option>Subsi Bimbingan Kerja</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="idTujuanSurat" placeholder="Tujuan Surat">
+                        <input type="text" class="form-control text-blue" id="idTujuanSurat" placeholder="Tujuan Surat">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="idInstansiSurat" placeholder="Instansi Tujuan Surat">
+                        <input type="text" class="form-control text-blue" id="idInstansiSurat" placeholder="Instansi Tujuan Surat">
                     </div>
                     <div class="form-group">
                         <div class="input-group date">
-                            <input placeholder="Tanggal Surat" type="text" id="tanggalSurat" class="form-control datepicker">
+                            <input placeholder="Tanggal Surat" type="text" id="tanggalSurat" class="form-control text-blue datepicker">
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="nomorSurat" placeholder="Nomor Surat">
+                        <input type="text" class="form-control text-blue" id="nomorSurat" placeholder="Nomor Surat">
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" id="perihalSurat" rows="3" placeholder="Perihal Surat"></textarea>
+                        <textarea class="form-control text-blue" id="perihalSurat" rows="3" placeholder="Perihal Surat"></textarea>
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                        <button type="button" class="btn btn-primary btn-lg">Nomor Surat</button>
+                        <button type="button" class="btn btn-primary bg-blue btn-lg">Nomor Surat</button>
                         </div>
                     </div>
                 </form>
