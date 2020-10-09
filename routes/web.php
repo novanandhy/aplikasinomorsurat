@@ -32,7 +32,7 @@ Route::get('/login', function () {
 });
 
 Route::get('/admin', function () {
-    return view('admin_daftarsurat');
+    return view('bootstrap_layout/admin_daftarsurat');
 });
 
 Route::get('/edit', function () {

@@ -66,15 +66,6 @@ nav{
     padding-bottom: 20px;
 }
 
-.dropdown-content li>a, .dropdown-content li>span {
-    color: #194769;
-}
-
-input.valid[type=text]:not(.browser-default){
-    border-bottom: 1px solid #f2855e;
-    box-shadow: 0 1px 0 0 #f2855e;
-}
-
 input[type=text]:not(.browser-default):focus:not([readonly]){
     border-bottom: 1px solid #194769;
     box-shadow: 0 1px 0 0 #194769;
@@ -82,4 +73,14 @@ input[type=text]:not(.browser-default):focus:not([readonly]){
 
 input[type=text]:not(.browser-default):focus:not([readonly])+label{
     color: #194769;
+}
+
+.modal {
+    width: 25%;
+}
+
+@media screen and (max-width: 992px) {
+    .modal {
+        width: 80%;
+    }
 }

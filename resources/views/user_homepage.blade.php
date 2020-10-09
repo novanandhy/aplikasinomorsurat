@@ -78,7 +78,7 @@
                         <!-- penujuan surat -->
                         <div class="row">
                             <div class="input-field">
-                                <input id="tujuan_surat" type="text" class="autocomplete">
+                                <input id="tujuan_surat" type="text" class="tujuan_surat">
                                 <label for="tujuan_surat">Tujuan Surat</label>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                         <!-- insansi tujuan surat -->
                         <div class="row">
                             <div class="input-field">
-                                <input id="instansi_surat" type="text" class="autocomplete">
+                                <input id="instansi_surat" type="text" class="instansi_surat">
                                 <label for="instansi_surat">Instansi Tujuan Surat</label>
                             </div>
                         </div>
@@ -102,15 +102,15 @@
                         <!-- pengisian kode surat -->
                         <div class="row">
                             <div class="input-field">
-                                <input value="W15.PAS.PAS25-" id="nomor_surat" type="text" class="validate">
-                                <label for="nomor_surat">Kode Surat</label>
+                                <input value="W15.PAS.PAS25-" id="kode_surat" type="text" class="kode_surat">
+                                <label for="kode_surat">Kode Surat</label>
                             </div>
                         </div>
 
                         <!-- isi perihal surat -->
                         <div class="row">
                             <div class="input-field">
-                                <input id="perihal_surat" type="text" class="autocomplete"></input>
+                                <input id="perihal_surat" type="text" class="perihal_surat"></input>
                                 <label for="perihal_surat">Perihal Surat</label>
                             </div>
                         </div>
@@ -164,13 +164,44 @@
                 M.updateTextFields();
             });
 
-            // JQuery untuk autocomplete
+            // JQuery untuk autocomplete tujuan surat
             $(document).ready(function(){
-                $('input.autocomplete').autocomplete({
+                $('input.tujuan_surat').autocomplete({
                 data: {
-                    "Apple": null,
-                    "Microsoft": null,
-                    "Google": null
+                    "Kepala Kantor Wilayah Kemenkumham Jatim": null,
+                    "Kepala Kejaksaan Negeri Surabaya": null,
+                    "Kepala Kejaksaaan Negeri Tanjung Perak": null
+                },
+                });
+            });
+
+            // JQuery untuk autocomplete tujuan instansi surat
+            $(document).ready(function(){
+                $('input.instansi_surat').autocomplete({
+                data: {
+                    "Kantor Wilayah Kemenkumham Jatim": null,
+                    "Kejaksaan Negeri Surabaya": null,
+                    "Kejaksaaan Negeri Tanjung Perak": null
+                },
+                });
+            });
+
+            // JQuery untuk autocomplete kode surat
+            $(document).ready(function(){
+                $('input.kode_surat').autocomplete({
+                data: {
+                    "W15.PAS.PAS25-PK.01.05.06": null,
+                    "W15.PAS.PAS25-PK.01.04.01": null
+                },
+                });
+            });
+
+            // JQuery untuk autocomplete perihal surat
+            $(document).ready(function(){
+                $('input.perihal_surat').autocomplete({
+                data: {
+                    "Pemberitahuan Pemberian Program PB kepada Napi Subsider": null,
+                    "Laporan Tunggakan Pembayaran Listrik": null
                 },
                 });
             });
