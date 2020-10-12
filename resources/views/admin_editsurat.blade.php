@@ -48,50 +48,71 @@
                 <h4>Perbarui Data Surat</h4>
             </div>
         </div>
-        <div class="row mt-2">
-            <div class="col-12">
-                <form>
+        <div class="row row justify-content-lg-center mt-5">
+            <div class="col-lg-8 col-sm-12">
+                <form class="needs-validation" novalidate>
                     <div class="form-group">
-                        <select class="form-control" id="idPengirim">
-                        <option selected>Pilih Pengirim</option>
-                        <option>Subsi Umum dan Kepegawaian</option>
-                        <option>Subsi Keuangan dan Perlengkapan</option>
-                        <option>Tata Usaha</option>
-                        <option>Pengamanan Rutan</option>
-                        <option>Subsi Registrasi dan Perawatan</option>
-                        <option>Subsi Bantuan Hukum dan Penyuluhan</option>
-                        <option>Subsi Bimbingan Kerja</option>
+                        <select class="custom-select" id="idPengirim" required>
+                            <option selected disabled value="">Pilih Pengirim</option>
+                            <option>Subsi Umum dan Kepegawaian</option>
+                            <option>Subsi Keuangan dan Perlengkapan</option>
+                            <option>Tata Usaha</option>
+                            <option>Pengamanan Rutan</option>
+                            <option>Subsi Registrasi dan Perawatan</option>
+                            <option>Subsi Bantuan Hukum dan Penyuluhan</option>
+                            <option>Subsi Bimbingan Kerja</option>
                         </select>
+                        <div class="invalid-feedback">
+                            Pengirim belum dipilih
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="idTujuanSurat" placeholder="Tujuan Surat">
+                        <input type="text" class="form-control typehead" id="idTujuanSurat" placeholder="Tujuan Surat" autocomplete="off" Required>
+                        <div class="invalid-feedback">
+                            Tujuan surat belum terisi
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="idInstansiSurat" placeholder="Instansi Tujuan Surat">
+                        <input type="text" class="form-control" id="idInstansiSurat" placeholder="Instansi Tujuan Surat" autocomplete="off" Required>
+                        <div class="invalid-feedback">
+                            Tujuan instansi surat belum terisi
+                        </div>
                     </div>
                     <div class="form-group">
                         <div class="input-group date">
-                            <input placeholder="Tanggal Surat" type="text" id="tanggalSurat" class="form-control datepicker">
+                            <input placeholder="Tanggal Surat" type="text" id="tanggalSurat" class="form-control datepicker" autocomplete="off" Required>
+                            <div class="invalid-feedback">
+                                Tanggal surat belum terisi
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="nomorSurat" placeholder="Nomor Surat">
+                        <input type="text" class="form-control" id="kodeSurat" placeholder="Kode Surat" value="W15.PAS.PAS25-" autocomplete="off" Required>
+                        <div class="invalid-feedback">
+                            Kode Surat belum terisi
+                        </div>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" id="perihalSurat" rows="3" placeholder="Perihal Surat"></textarea>
+                        <textarea class="form-control" id="perihalSurat" rows="3" placeholder="Perihal Surat" autocomplete="off" required></textarea>
+                        <div class="invalid-feedback">
+                            Perihal Surat belum terisi
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                        <button type="button" class="btn btn-primary btn-lg">Perbarui Data</button>
+                        <button type="submit" class="btn btn-primary btn-lg">Nomor Surat</button>
                         </div>
                     </div>
                 </form>
+                <hr width=100% size=100 NOSHADE >
             </div>
         </div>
     </div>
     
-    <!-- Datepciker JavaScript -->
+
     <script type="text/javascript">
+        
+        // Datepciker JavaScript
         $(function(){
             $(".datepicker").datepicker({
                 format: 'yyyy-mm-dd',
@@ -99,6 +120,26 @@
                 todayHighlight: true,
             });
         });
+
+        // valid-invalid statement
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        $(function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+            });
+        }, false);
+        })();
     </script>
 
   </body>
