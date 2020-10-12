@@ -43,55 +43,59 @@
             </div>
             <hr/>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mt-3">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Nomor Surat <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Daftar Surat</a>
-                </li>
-            </div>
-        </nav>
-        <div class="row mt-3">
-            <div class="col-12">
-                <form>
+        <div class="row row justify-content-lg-center mt-5">
+            <div class="col-lg-8 col-sm-12">
+                <form class="needs-validation" novalidate>
                     <div class="form-group">
-                        <select class="form-control" id="idPengirim">
-                        <option selected>Pilih Pengirim</option>
-                        <option>Subsi Umum dan Kepegawaian</option>
-                        <option>Subsi Keuangan dan Perlengkapan</option>
-                        <option>Tata Usaha</option>
-                        <option>Pengamanan Rutan</option>
-                        <option>Subsi Registrasi dan Perawatan</option>
-                        <option>Subsi Bantuan Hukum dan Penyuluhan</option>
-                        <option>Subsi Bimbingan Kerja</option>
+                        <select class="custom-select" id="idPengirim" required>
+                            <option selected disabled value="">Pilih Pengirim</option>
+                            <option>Subsi Umum dan Kepegawaian</option>
+                            <option>Subsi Keuangan dan Perlengkapan</option>
+                            <option>Tata Usaha</option>
+                            <option>Pengamanan Rutan</option>
+                            <option>Subsi Registrasi dan Perawatan</option>
+                            <option>Subsi Bantuan Hukum dan Penyuluhan</option>
+                            <option>Subsi Bimbingan Kerja</option>
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="idTujuanSurat" placeholder="Tujuan Surat">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="idInstansiSurat" placeholder="Instansi Tujuan Surat">
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group date">
-                            <input placeholder="Tanggal Surat" type="text" id="tanggalSurat" class="form-control datepicker">
+                        <div class="invalid-feedback">
+                            Pengirim belum dipilih
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="nomorSurat" placeholder="Nomor Surat">
+                        <input type="text" class="form-control typehead" id="idTujuanSurat" placeholder="Tujuan Surat" autocomplete="off" Required>
+                        <div class="invalid-feedback">
+                            Tujuan surat belum terisi
+                        </div>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" id="perihalSurat" rows="3" placeholder="Perihal Surat"></textarea>
+                        <input type="text" class="form-control" id="idInstansiSurat" placeholder="Instansi Tujuan Surat" autocomplete="off" Required>
+                        <div class="invalid-feedback">
+                            Tujuan instansi surat belum terisi
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group date">
+                            <input placeholder="Tanggal Surat" type="text" id="tanggalSurat" class="form-control datepicker" autocomplete="off" Required>
+                            <div class="invalid-feedback">
+                                Tanggal surat belum terisi
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="kodeSurat" placeholder="Kode Surat" value="W15.PAS.PAS25-" autocomplete="off" Required>
+                        <div class="invalid-feedback">
+                            Kode Surat belum terisi
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="perihalSurat" rows="3" placeholder="Perihal Surat" autocomplete="off" required></textarea>
+                        <div class="invalid-feedback">
+                            Perihal Surat belum terisi
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                        <button type="button" class="btn btn-primary btn-lg">Nomor Surat</button>
+                        <button type="submit" class="btn btn-primary btn-lg">Nomor Surat</button>
                         </div>
                     </div>
                 </form>
@@ -110,8 +114,9 @@
         </div>
     </div>
     
-    <!-- Datepciker JavaScript -->
+    
     <script type="text/javascript">
+        // Datepciker JavaScript
         $(function(){
             $(".datepicker").datepicker({
                 format: 'yyyy-mm-dd',
@@ -119,7 +124,31 @@
                 todayHighlight: true,
             });
         });
+
+        // valid-invalid statement
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        $(function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+            });
+        }, false);
+        })();
+
+        
     </script>
+
+    
 
   </body>
 </html>
