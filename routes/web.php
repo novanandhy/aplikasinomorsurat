@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 // user previllage
 Route::get('/', function () {
-    return view('user_aplikasi');
+    return view('bootstrap_layout/user_aplikasi');
 });
 
 Route::get('/home', function () {
@@ -33,6 +33,10 @@ Route::get('/login', function () {
 
 Route::get('/admin', function () {
     return view('bootstrap_layout/admin_daftarsurat');
+});
+
+Route::get('/adminhomepage', function () {
+    return view('admin_daftarsurat');
 });
 
 Route::get('/edit', function () {

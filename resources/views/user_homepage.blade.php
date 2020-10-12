@@ -17,15 +17,15 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 
-    <body class="bg-white">
+    <body>
         <div class="container z-depth-3 blue-grey lighten-5">
 
             <!-- header halaman -->
             <div class="row">
-                <div class="col s6 l1">
+                <div class="col s6 m1 l1">
                     <img class="responsive-image logo-pengayoman right" src="{{ asset('/img/pengayoman_logo.png') }}" alt="logo pengayoman">
                 </div>
-                <div class="col s6 l1">
+                <div class="col s6 m1 l1">
                     <img class="responsive-image logo-pas" src="{{ asset('/img/pas.png') }}" alt="logo pemasyarakatan">
                 </div>
                 <div class="col s12 l10">
@@ -36,24 +36,7 @@
                 </div>
             </div>
 
-            <!-- tombol navigasi -->
-            <div class="row">
-                <nav>
-                    <div class="nav-wrapper bg-blue">
-                        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                        <ul class="left hide-on-med-and-down">
-                            <li><a href="#">Nomor Surat</a></li>
-                            <li><a href="#">Daftar Surat</a></li>
-                        </ul>
-                    </div>
-                </nav>
-
-                <!-- side navigation -->
-                <ul class="sidenav bg-blue" id="mobile-demo">
-                    <li><a href="#" class="text-white">Nomor Surat</a></li>
-                    <li><a href="#" class="text-white">Daftar Surat</a></li>
-                </ul>
-            </div>
+            <!-- form aplikasi -->
             <form>
                 <div class="row">
                     <div class="col s10 offset-s1 l4 offset-l4">
