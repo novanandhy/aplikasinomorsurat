@@ -32,6 +32,8 @@
 
   <body>
     <div class="container shadow mt-3 pt-3 pb-3 bg-light rounded">
+
+        <!-- Kop Aplikasi -->
         <div class="row media pb-5">
             <div class="col-6 col-md-1 text-right">
                 <img class="align-self-center mr-3 logo_pengayoman" src="{{ asset('/img/pengayoman_logo.png') }}" alt="logo pengayoman">
@@ -47,11 +49,15 @@
             </div>
             <hr/>
         </div>
+
+        <!-- tombol cetak -->
         <div class="row text-right pb-1">
             <div class="col-md-2 offset-md-10">
                 <button type="button" class="btn btn-primary btn-md"><i class="fa fa-print"></i> Cetak</button>
             </div>
         </div>
+
+        <!-- tabel data surat -->
         <table id="example" class="table table-responsive table-striped table-bordered" style="max-width:100%">
             <thead>
                 <tr>
@@ -82,6 +88,7 @@
             </tbody>
         </table>
 
+        <!-- modal untuk hapus data -->
         <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
