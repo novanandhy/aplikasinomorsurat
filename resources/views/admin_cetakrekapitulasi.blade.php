@@ -64,11 +64,11 @@
                             <form>
                                 <div class="form-group">
                                     <div class="input-group input-daterange">
-                                        <input type="text" class="form-control datepicker">
+                                        <input type="text" class="form-control datepickerMonth">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1">sampai</span>
                                         </div>
-                                        <input type="text" class="form-control datepicker">
+                                        <input type="text" class="form-control datepickerMonth">
                                         <button type="button" class="btn btn-primary btn-sm">
                                             <i class="fa fa-search" aria-hidden="true"></i>
                                         </button>
@@ -86,7 +86,66 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="pills-cetak" role="tabpanel" aria-labelledby="pills-cetak-tab">2</div>
+                    <div class="tab-pane fade" id="pills-cetak" role="tabpanel" aria-labelledby="pills-cetak-tab">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                    <a class="nav-link active" id="v-pills-tanggal-tab" data-toggle="pill" href="#v-pills-tanggal" role="tab" aria-controls="v-pills-tanggal" aria-selected="true">tanggal</a>
+                                    <a class="nav-link" id="v-pills-pengirim-tab" data-toggle="pill" href="#v-pills-pengirim" role="tab" aria-controls="v-pills-pengirim" aria-selected="false">pengirim</a>
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <div class="tab-content" id="v-pills-tabContent">
+                                    <div class="tab-pane fade show active" id="v-pills-tanggal" role="tabpanel" aria-labelledby="v-pills-tanggal-tab">
+                                        <form>
+                                            <div class="form-group">
+                                                <div class="input-group input-daterange">
+                                                    <input type="text" class="form-control datepicker">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">sampai</span>
+                                                    </div>
+                                                    <input type="text" class="form-control datepicker">
+                                                </div>
+                                                <div class="row mt-2">
+                                                    <div class="col text-center">
+                                                        <button type="button" class="btn btn-primary btn-lg">
+                                                            <i class="fa fa-download" aria-hidden="true"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane fade" id="v-pills-pengirim" role="tabpanel" aria-labelledby="v-pills-pengirim-tab">
+                                        <form class="needs-validation" novalidate>
+                                            <div class="form-group">
+                                                <select class="custom-select" id="idPengirim" required>
+                                                    <option selected disabled value="">Pilih Pengirim</option>
+                                                    <option>Subsi Umum dan Kepegawaian</option>
+                                                    <option>Subsi Keuangan dan Perlengkapan</option>
+                                                    <option>Tata Usaha</option>
+                                                    <option>Pengamanan Rutan</option>
+                                                    <option>Subsi Registrasi dan Perawatan</option>
+                                                    <option>Subsi Bantuan Hukum dan Penyuluhan</option>
+                                                    <option>Subsi Bimbingan Kerja</option>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    Pengirim belum dipilih
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col text-center">
+                                                    <button type="button" class="btn btn-primary btn-lg">
+                                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -101,12 +160,18 @@
 
         // Datepciker JavaScript
         $(function(){
-            $(".datepicker").datepicker({
+            $(".datepickerMonth").datepicker({
                 format: 'MM yyyy',
                 autoclose: true,
                 todayHighlight: true,
                 startView: "months",
                 minViewMode: "months"
+            });
+
+            $(".datepicker").datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true
             });
 
             $('.input-daterange input').each(function() {
