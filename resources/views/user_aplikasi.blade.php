@@ -28,6 +28,8 @@
 
   <body>
     <div class="container shadow mt-3 pt-3 pb-3 bg-light rounded">
+
+        <!-- Kop Aplikasi -->
         <div class="row media">
             <div class="col-6 col-md-1 text-right">
                 <img class="align-self-center mr-3 logo_pengayoman" src="{{ asset('/img/pengayoman_logo.png') }}" alt="logo pengayoman">
@@ -43,6 +45,8 @@
             </div>
             <hr/>
         </div>
+
+        <!-- form Aplikasi -->
         <div class="row justify-content-lg-center mt-5">
             <div class="col-lg-8 col-sm-12">
                 <form class="needs-validation" novalidate>
