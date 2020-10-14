@@ -31,6 +31,8 @@
 </head>
 <body>
     <div class="container shadow mt-3 pt-3 pb-3 bg-light rounded">
+
+        <!-- Kop Aplikasi -->
         <div class="row media">
             <div class="col-6 col-md-1 text-right">
                 <img class="align-self-center mr-3 logo_pengayoman" src="{{ asset('/img/pengayoman_logo.png') }}" alt="logo pengayoman">
@@ -46,6 +48,8 @@
             </div>
             <hr/>
         </div>
+
+        <!-- tab halaman utama -->
         <div class="row justify-content-lg-center mt-5">
             <div class="col-lg-10 col-sm-12">
                 <ul class="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
@@ -57,26 +61,32 @@
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
+
+                    <!-- layout halaman Grafik -->
                     <div class="tab-pane fade show active" id="pills-overview" role="tabpanel" aria-labelledby="pills-overview-tab">
                         <h5 class="text-center">Rekapitulasi Surat Berdasarkan  Rentang Bulan</h5>
+
+                        <!-- form untuk mancari Rekapitulasi berdasarkan tanggal -->
                         <div class="row justify-content-center">
                             <div class="col-lg-8 col-md-10 col-md-10">
-                            <form>
-                                <div class="form-group">
-                                    <div class="input-group input-daterange">
-                                        <input type="text" class="form-control datepickerMonth">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="basic-addon1">sampai</span>
+                                <form>
+                                    <div class="form-group">
+                                        <div class="input-group input-daterange">
+                                            <input type="text" class="form-control datepickerMonth">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">sampai</span>
+                                            </div>
+                                            <input type="text" class="form-control datepickerMonth">
+                                            <button type="button" class="btn btn-primary btn-sm">
+                                                <i class="fa fa-search" aria-hidden="true"></i>
+                                            </button>
                                         </div>
-                                        <input type="text" class="form-control datepickerMonth">
-                                        <button type="button" class="btn btn-primary btn-sm">
-                                            <i class="fa fa-search" aria-hidden="true"></i>
-                                        </button>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
                             </div>
                         </div>  
+
+                        <!-- tampilan Grafik -->
                         <div class="row">
                             <div class="col-sm-12 col-lg-6">
                                 <canvas class="canvas" height="250" id="chart1"></canvas>
@@ -86,16 +96,24 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- layout untuk cetak data -->
                     <div class="tab-pane fade" id="pills-cetak" role="tabpanel" aria-labelledby="pills-cetak-tab">
                         <div class="row">
+
+                            <!-- tab pilihan menu -->
                             <div class="col-3">
                                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                     <a class="nav-link active" id="v-pills-tanggal-tab" data-toggle="pill" href="#v-pills-tanggal" role="tab" aria-controls="v-pills-tanggal" aria-selected="true">tanggal</a>
                                     <a class="nav-link" id="v-pills-pengirim-tab" data-toggle="pill" href="#v-pills-pengirim" role="tab" aria-controls="v-pills-pengirim" aria-selected="false">pengirim</a>
                                 </div>
                             </div>
+
+                            <!-- tab konten -->
                             <div class="col-9">
                                 <div class="tab-content" id="v-pills-tabContent">
+
+                                    <!-- layout halaman cetak surat berdasarkan tanggal -->
                                     <div class="tab-pane fade show active" id="v-pills-tanggal" role="tabpanel" aria-labelledby="v-pills-tanggal-tab">
                                         <form>
                                             <div class="form-group">
@@ -116,6 +134,8 @@
                                             </div>
                                         </form>
                                     </div>
+
+                                    <!-- layout halaman cetak surat berdasarkan pengirim -->
                                     <div class="tab-pane fade" id="v-pills-pengirim" role="tabpanel" aria-labelledby="v-pills-pengirim-tab">
                                         <form class="needs-validation" novalidate>
                                             <div class="form-group">
