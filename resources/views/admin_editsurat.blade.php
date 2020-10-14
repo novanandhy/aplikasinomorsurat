@@ -48,7 +48,7 @@
                 <h4>Perbarui Data Surat</h4>
             </div>
         </div>
-        <div class="row row justify-content-lg-center mt-5">
+        <div class="row justify-content-lg-center mt-5">
             <div class="col-lg-8 col-sm-12">
                 <form class="needs-validation" novalidate>
                     <div class="form-group">
