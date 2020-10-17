@@ -72,19 +72,21 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($surat as $surat)
                 <tr>
-                    <td>1</td>
+                    <td>{{$surat->nomor}}</td>
                     <td>Subsi Bantuan Hukum dan Penyuluhan</td>
-                    <td>Kepala Kanwil Kemenkumham Jatim</td>
-                    <td>Kanwil Kemenkumham Jatim</td>
-                    <td>20/11/2020</td>
-                    <td>W15.PAS.PAS25.PK.01.05.06-1</td>
-                    <td>Pembebasan Demi Hukum atas nama Nuriyanto bin Nuri</td>
+                    <td>{{$surat->tujuan_surat}}</td>
+                    <td>{{$surat->tujuan_instansi}}</td>
+                    <td>{{$surat->tanggal_surat}}</td>
+                    <td>{{$surat->kode_surat}}</td>
+                    <td>{{$surat->perihal_surat}}</td>
                     <td>
                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal1"><i class="fa fa-trash-o"></i></button>
                         <a href="/edit"><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-pencil"></i></button></a>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
 

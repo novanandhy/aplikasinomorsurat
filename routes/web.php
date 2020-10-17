@@ -23,9 +23,7 @@ Route::get('/login', function () {
     return view('admin_login');
 });
 
-Route::get('/admin', function () {
-    return view('admin_daftarsurat');
-});
+Route::get('/admin', 'App\Http\Controllers\SuratController@index');
 
 Route::get('/edit', function () {
     return view('admin_editsurat');
