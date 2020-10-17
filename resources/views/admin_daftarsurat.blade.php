@@ -53,7 +53,7 @@
         <!-- tombol cetak -->
         <div class="row text-right pb-1">
             <div class="col-md-2 offset-md-10">
-                <button type="button" class="btn btn-primary btn-md"><i class="fa fa-print"></i> Cetak</button>
+                <a href="/cetak"><button type="button" class="btn btn-primary btn-md"><i class="fa fa-print"></i> Cetak</button></a>
             </div>
         </div>
 
@@ -82,7 +82,7 @@
                     <td>Pembebasan Demi Hukum atas nama Nuriyanto bin Nuri</td>
                     <td>
                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal1"><i class="fa fa-trash-o"></i></button>
-                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-pencil"></i></button>
+                        <a href="/edit"><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-pencil"></i></button></a>
                     </td>
                 </tr>
             </tbody>
