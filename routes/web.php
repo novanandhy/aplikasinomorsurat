@@ -18,10 +18,6 @@ Route::get('/', function () {
     return view('user_aplikasi');
 });
 
-Route::get('/daftarsurat', function () {
-    return view('user_daftarsurat');
-});
-
 // admin previllage
 Route::get('/login', function () {
     return view('admin_login');
