@@ -108,7 +108,6 @@
                         </div>
                     </div>
                 </form>
-                <hr width=100% size=100 NOSHADE >
             </div>
         </div>
     </div>
