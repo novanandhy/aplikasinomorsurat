@@ -74,8 +74,8 @@
             <tbody>
                 @foreach($surat as $surat)
                 <tr>
-                    <td>{{$surat->nomor}}</td>
-                    <td>Subsi Bantuan Hukum dan Penyuluhan</td>
+                    <td>{{$surat->id}}</td>
+                    <td>{{$surat->bagian->nama_bagian}}</td>
                     <td>{{$surat->tujuan_surat}}</td>
                     <td>{{$surat->tujuan_instansi}}</td>
                     <td>{{$surat->tanggal_surat}}</td>
