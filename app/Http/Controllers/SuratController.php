@@ -47,4 +47,23 @@ class SuratController extends Controller
 
 		return response()->json($data);
 	}
+
+	public function proses(Request $request){
+		$message = [
+			'required' => ':attribute wajib diisi',
+			'min' => ':attribute diisi minimal :min karakter',
+			'max' => ':attribute diisi maksimal :max karakter'
+		];
+
+		$this->validate($request,[
+			'tujuanSurat' => 'required|min:7',
+			'tujuanInstansi' => 'required|min:7',
+			'tanggalSurat' => 'required|min:10|max:10',
+			'kodeSurat' => 'required|min:15',
+			'perihalSurat' => 'required|min:7'
+		], $message);
+
+		return view('user_cetaknomor',['data' => $request]);
+	
+	}
 }

@@ -49,60 +49,54 @@
         <div class="row justify-content-lg-center mt-5">
             <div class="col-lg-8 col-sm-12">
 
+                {{-- menampilkan error validasi --}}
+                @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                <br/>
+
                 <!-- form Aplikasi -->
-                <form class="needs-validation" novalidate>
+                <form  action="/post" method="POST">
+                    {{ csrf_field() }}
                     <div class="form-group">
                         <label for="idPengirim">Pengirim Surat</label>
-                        <select class="custom-select" id="idPengirim" required>
+                        <select class="custom-select" id="idPengirim" name="idpengirim">
                             <option selected disabled value="">Pilih Pengirim</option>
                             @foreach($bagian as $bagian)
                             <option value="{{$bagian->id}}">{{$bagian->nama_bagian}}</option>    
                             @endforeach
                         </select>
-                        <div class="invalid-feedback">
-                            Pengirim belum dipilih
-                        </div>
                     </div>
                     <div class="form-group">
                         <label for="idTujuanSurat">Tujuan Surat</label>
-                        <input type="text" class="form-control" id="idTujuanSurat" placeholder="Tujuan Surat" autocomplete="off" Required>
-                        <div class="invalid-feedback">
-                            Tujuan surat belum terisi
-                        </div>
+                        <input type="text" class="form-control" id="idTujuanSurat" placeholder="Tujuan Surat" name="tujuanSurat" value="{{ old('tujuansurat') }}">
                     </div>
                     <div class="form-group">
                         <label for="idInstansiSurat">Tujuan Instansi Surat</label>
-                        <input type="text" class="form-control" id="idInstansiSurat" placeholder="Instansi Tujuan Surat" autocomplete="off" Required>
-                        <div class="invalid-feedback">
-                            Tujuan instansi surat belum terisi
-                        </div>
+                        <input type="text" class="form-control" id="idInstansiSurat" placeholder="Instansi Tujuan Surat" name="tujuanInstansi" value="{{ old('tujuaninstansi') }}">
                     </div>
                     <div class="form-group">
                         <label for="tanggalSurat">Tanggal Surat</label>
                         <div class="input-group date">
-                            <input placeholder="Tanggal Surat" type="text" id="tanggalSurat" class="form-control datepicker" autocomplete="off" Required>
-                            <div class="invalid-feedback">
-                                Tanggal surat belum terisi
-                            </div>
-                        </div>
+                            <input placeholder="Tanggal Surat" type="text" id="tanggalSurat" class="form-control datepicker" name="tanggalSurat" value="{{ old('tanggalsurat') }}">
                     </div>
                     <div class="form-group">
                         <label for="kodeSurat">Kode Surat</label>
-                        <input type="text" class="form-control" id="kodeSurat" placeholder="Kode Surat" value="W15.PAS.PAS25-" autocomplete="off" Required>
-                        <div class="invalid-feedback">
-                            Kode Surat belum terisi
-                        </div>
+                        <input type="text" class="form-control" id="kodeSurat" placeholder="Kode Surat" value="W15.PAS.PAS25-" name="kodeSurat" value="{{ old('kodesurat') }}">
                     </div>
                     <div class="form-group">
                         <label for="perihalSurat">Perihal Surat</label>
-                        <textarea class="form-control" id="perihalSurat" rows="3" placeholder="Perihal Surat" autocomplete="off" required></textarea>
-                        <div class="invalid-feedback">
-                            Perihal Surat belum terisi
-                        </div>
+                        <input placeholder="Perihal Surat" type="text" id="perihalSurat" class="form-control " name="perihalSurat" value="{{ old('perihalSurat') }}">
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#staticBackdrop">Nomor Surat</button>
+                            <button type="submit" class="btn btn-primary btn-lg">Nomor Surat</button>
                         </div>
                     </div>
                 </form>
@@ -121,6 +115,7 @@
             });
         });
 
+        // autocomple tujuan surat
         var path_tujuan = "{{ url('autocomplete_tujuan') }}";
         $('#idTujuanSurat').typeahead({
             source:  function (query, process) {
@@ -130,6 +125,7 @@
             }
         });
 
+        // autocomplete tujuan instansi
         var path_instansi = "{{ url('autocomplete_instansi') }}";
         $('#idInstansiSurat').typeahead({
             source:  function (query, process) {
