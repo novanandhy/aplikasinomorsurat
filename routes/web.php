@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 // user previllage
 Route::get('/', 'App\Http\Controllers\BagianController@index');
+Route::get('/autocomplete_tujuan', 'App\Http\Controllers\SuratController@autocomplete_tujuan');
+Route::get('/autocomplete_instansi', 'App\Http\Controllers\SuratController@autocomplete_instansi');
 
 // admin previllage
 Route::get('/login', function () {

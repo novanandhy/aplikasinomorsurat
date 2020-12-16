@@ -15,9 +15,10 @@
     <link rel="stylesheet" href="{{ asset('/plugin/datepicker/dist/css/bootstrap-datepicker.min.css') }}">
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 
     <!-- Datepicker JS -->
     <script src="{{ asset('/plugin/datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
@@ -64,7 +65,7 @@
                     </div>
                     <div class="form-group">
                         <label for="idTujuanSurat">Tujuan Surat</label>
-                        <input type="text" class="form-control typehead" id="idTujuanSurat" placeholder="Tujuan Surat" autocomplete="off" Required>
+                        <input type="text" class="form-control" id="idTujuanSurat" placeholder="Tujuan Surat" autocomplete="off" Required>
                         <div class="invalid-feedback">
                             Tujuan surat belum terisi
                         </div>
@@ -107,31 +108,6 @@
                 </form>
             </div>
         </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Nomor Surat Ini</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="d-flex justify-content-center">
-                            <div class="spinner-border" id="spinnerLoading" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                            <h1 id="hasilNomor" > 1234</h1>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">tutup</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     
     
@@ -145,25 +121,23 @@
             });
         });
 
-        // valid-invalid statement
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        $(function() {
-        'use strict';
-        window.addEventListener('load', function() {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-                if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            }, false);
-            });
-        }, false);
-        })();
+        var path_tujuan = "{{ url('autocomplete_tujuan') }}";
+        $('#idTujuanSurat').typeahead({
+            source:  function (query, process) {
+            return $.get(path_tujuan, { query: query }, function (data) {
+                    return process(data);
+                });
+            }
+        });
+
+        var path_instansi = "{{ url('autocomplete_instansi') }}";
+        $('#idInstansiSurat').typeahead({
+            source:  function (query, process) {
+            return $.get(path_instansi, { query: query }, function (data) {
+                    return process(data);
+                });
+            }
+        });
 
         
     </script>
