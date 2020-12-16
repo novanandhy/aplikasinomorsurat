@@ -46,27 +46,27 @@
                 <table class="table table-bordered table-striped">
                     <tr>
                         <td>Tujuan Surat</td>
-                        <td>{{ $data->tujuanSurat }}</td>
+                        <td>{{ $data->tujuan_surat }}</td>
                     </tr>
                     <tr>
                         <td>Tujuan Instansi Surat</td>
-                        <td>{{ $data->tujuanInstansi }}</td>
+                        <td>{{ $data->tujuan_instansi }}</td>
                     </tr>
                     <tr>
                         <td>Tanggal Surat</td>
-                        <td>{{ $data->tanggalSurat }}</td>
+                        <td>{{ $data->tanggal_surat }}</td>
                     </tr>
                     <tr>
                         <td>Kode Surat</td>
-                        <td>{{ $data->kodeSurat }}</td>
+                        <td>{{ $data->kode_surat }}</td>
                     </tr>
                     <tr>
                         <td>Perihal  Surat</td>
-                        <td>{{ $data->perihalSurat }}</td>
+                        <td>{{ $data->perihal_surat }}</td>
                     </tr>
                     <tr>
                         <td>Nomor Surat</td>
-                        <td><h2>1234</h2></td>
+                        <td><h2>{{ $data->id }}</h2></td>
                     </tr>
                 </table>
 

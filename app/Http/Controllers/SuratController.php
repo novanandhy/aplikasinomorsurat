@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 use App\Models\Surat;
 
@@ -48,7 +49,8 @@ class SuratController extends Controller
 		return response()->json($data);
 	}
 
-	public function proses(Request $request){
+	// validasi form isian
+	public function simpan(Request $request){
 		$message = [
 			'required' => ':attribute wajib diisi',
 			'min' => ':attribute diisi minimal :min karakter',
@@ -63,7 +65,27 @@ class SuratController extends Controller
 			'perihalSurat' => 'required|min:7'
 		], $message);
 
-		return view('user_cetaknomor',['data' => $request]);
+		$exist = Surat::where('id_pengirim', $request->get('idPengirim'))->where('tujuan_surat', $request->get('tujuanSurat'))->where('tujuan_instansi', $request->get('tujuanInstansi'))->where('tanggal_surat', $request->get('tanggalSurat'))->where('kode_surat', $request->get('kodeSurat'))->where('perihal_surat', $request->get('perihalSurat'))->first();
+
+		if($exist === null){
+			$surat = new Surat([
+				'id_pengirim' => $request->get('idPengirim'),
+				'tujuan_surat' => $request->get('tujuanSurat'),
+				'tujuan_instansi' => $request->get('tujuanInstansi'),
+				'tanggal_surat' => $request->get('tanggalSurat'),
+				'kode_surat' => $request->get('kodeSurat'),
+				'perihal_surat' => $request->get('perihalSurat'),
+				'created_at' => Carbon::now()
+			]);
+	
+			$surat->save();
+			
+			$data = Surat::where('tujuan_surat', $surat['tujuan_surat'])->where('id_pengirim', $surat['id_pengirim'])->where('perihal_surat', $surat['perihal_surat'])->first();
+	
+			return view('user_cetaknomor',['data' => $data]);
+		}else{
+			return redirect('/')->with(['error' => 'Data surat telah ada']);
+		}
 	
 	}
 }

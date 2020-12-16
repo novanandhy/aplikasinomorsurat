@@ -49,6 +49,13 @@
         <div class="row justify-content-lg-center mt-5">
             <div class="col-lg-8 col-sm-12">
 
+                @if ($message = Session::get('error'))
+                <div class="alert alert-danger alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button> 
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
+
                 {{-- menampilkan error validasi --}}
                 @if (count($errors) > 0)
                 <div class="alert alert-danger">
@@ -66,10 +73,10 @@
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="idPengirim">Pengirim Surat</label>
-                        <select class="custom-select" id="idPengirim" name="idpengirim">
+                        <select class="custom-select" id="idPengirim" name="idPengirim">
                             <option selected disabled value="">Pilih Pengirim</option>
                             @foreach($bagian as $bagian)
-                            <option value="{{$bagian->id}}">{{$bagian->nama_bagian}}</option>    
+                            <option value={{$bagian->id}}>{{$bagian->nama_bagian}}</option>    
                             @endforeach
                         </select>
                     </div>
