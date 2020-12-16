@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // user previllage
-Route::get('/', function () {
-    return view('user_aplikasi');
-});
+Route::get('/', 'App\Http\Controllers\BagianController@index');
 
 // admin previllage
 Route::get('/login', function () {

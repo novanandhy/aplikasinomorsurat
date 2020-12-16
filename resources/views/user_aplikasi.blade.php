@@ -54,13 +54,9 @@
                         <label for="idPengirim">Pengirim Surat</label>
                         <select class="custom-select" id="idPengirim" required>
                             <option selected disabled value="">Pilih Pengirim</option>
-                            <option>Subsi Umum dan Kepegawaian</option>
-                            <option>Subsi Keuangan dan Perlengkapan</option>
-                            <option>Tata Usaha</option>
-                            <option>Pengamanan Rutan</option>
-                            <option>Subsi Registrasi dan Perawatan</option>
-                            <option>Subsi Bantuan Hukum dan Penyuluhan</option>
-                            <option>Subsi Bimbingan Kerja</option>
+                            @foreach($bagian as $bagian)
+                            <option value="{{$bagian->id}}">{{$bagian->nama_bagian}}</option>    
+                            @endforeach
                         </select>
                         <div class="invalid-feedback">
                             Pengirim belum dipilih
