@@ -69,11 +69,11 @@
                 <br/>
 
                 <!-- form Aplikasi -->
-                <form  action="/post" method="POST">
+                <form  action="/post" method="POST" id="formsubmit">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="idPengirim">Pengirim Surat</label>
-                        <select class="custom-select" id="idPengirim" name="idPengirim">
+                        <select class="custom-select" id="idPengirim" name="pengirim">
                             <option selected disabled value="">Pilih Pengirim</option>
                             @foreach($bagian as $bagian)
                             <option value={{$bagian->id}}>{{$bagian->nama_bagian}}</option>    
@@ -103,7 +103,7 @@
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                            <button type="submit" class="btn btn-primary btn-lg">Nomor Surat</button>
+                            <button type="submit" class="btn btn-primary btn-lg" id="buttonSubmit" onclick="this.disabled=true;this.value='Proses...';this.form.submit()">Nomor Surat</button>
                         </div>
                     </div>
                 </form>
@@ -113,6 +113,7 @@
     
     
     <script type="text/javascript">
+
         // Datepciker JavaScript
         $(function(){
             $(".datepicker").datepicker({

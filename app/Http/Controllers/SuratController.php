@@ -58,6 +58,7 @@ class SuratController extends Controller
 		];
 
 		$this->validate($request,[
+			'pengirim' => 'required',
 			'tujuanSurat' => 'required|min:7',
 			'tujuanInstansi' => 'required|min:7',
 			'tanggalSurat' => 'required|min:10|max:10',
@@ -65,11 +66,11 @@ class SuratController extends Controller
 			'perihalSurat' => 'required|min:7'
 		], $message);
 
-		$exist = Surat::where('id_pengirim', $request->get('idPengirim'))->where('tujuan_surat', $request->get('tujuanSurat'))->where('tujuan_instansi', $request->get('tujuanInstansi'))->where('tanggal_surat', $request->get('tanggalSurat'))->where('kode_surat', $request->get('kodeSurat'))->where('perihal_surat', $request->get('perihalSurat'))->first();
+		$exist = Surat::where('id_pengirim', $request->get('pengirim'))->where('tujuan_surat', $request->get('tujuanSurat'))->where('tujuan_instansi', $request->get('tujuanInstansi'))->where('tanggal_surat', $request->get('tanggalSurat'))->where('kode_surat', $request->get('kodeSurat'))->where('perihal_surat', $request->get('perihalSurat'))->first();
 
 		if($exist === null){
 			$surat = new Surat([
-				'id_pengirim' => $request->get('idPengirim'),
+				'id_pengirim' => $request->get('pengirim'),
 				'tujuan_surat' => $request->get('tujuanSurat'),
 				'tujuan_instansi' => $request->get('tujuanInstansi'),
 				'tanggal_surat' => $request->get('tanggalSurat'),

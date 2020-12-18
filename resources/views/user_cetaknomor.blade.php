@@ -42,7 +42,7 @@
         <div class="row justify-content-lg-center mt-5">
             <div class="col-lg-8 col-sm-12">
 
-                <h3 class="my-4">Data Yang Di Input : </h3>
+                <h3 class="my-4">Data Surat </h3>
                 <table class="table table-bordered table-striped">
                     <tr>
                         <td>Tujuan Surat</td>
@@ -57,16 +57,12 @@
                         <td>{{ $data->tanggal_surat }}</td>
                     </tr>
                     <tr>
-                        <td>Kode Surat</td>
-                        <td>{{ $data->kode_surat }}</td>
-                    </tr>
-                    <tr>
-                        <td>Perihal  Surat</td>
+                        <td>Perihal Surat</td>
                         <td>{{ $data->perihal_surat }}</td>
                     </tr>
                     <tr>
                         <td>Nomor Surat</td>
-                        <td><h2>{{ $data->id }}</h2></td>
+                        <td>{{ $data->kode_surat }}-<h2>{{ $data->id }}</h2></td>
                     </tr>
                 </table>
 
