@@ -66,7 +66,7 @@
                     </tr>
                 </table>
 
-                <a href="/" class="btn btn-primary">Kembali</a>
+                <a href="{{ route('aplikasi.index') }}" class="btn btn-primary">Kembali</a>
             </div>
         </div>
     </div>   

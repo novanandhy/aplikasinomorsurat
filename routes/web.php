@@ -17,19 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\BagianController@index');
 Route::get('/autocomplete_tujuan', 'App\Http\Controllers\SuratController@autocomplete_tujuan');
 Route::get('/autocomplete_instansi', 'App\Http\Controllers\SuratController@autocomplete_instansi');
-Route::post('/post', 'App\Http\Controllers\SuratController@simpan');
 
-// admin previllage
-Route::get('/login', function () {
-    return view('admin_login');
-});
+    Route::get('admin', 'App\Http\Controllers\SuratController@admin');
 
-Route::get('/admin', 'App\Http\Controllers\SuratController@index');
-
-Route::get('/edit', function () {
-    return view('admin_editsurat');
-});
-
-Route::get('/cetak', function () {
-    return view('admin_cetakrekapitulasi');
-});
+    Route::resource('aplikasi','App\Http\Controllers\SuratController');

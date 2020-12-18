@@ -69,7 +69,7 @@
                 <br/>
 
                 <!-- form Aplikasi -->
-                <form  action="/post" method="POST" id="formsubmit">
+                <form  action="{{ route('aplikasi.store') }}" method="POST" id="formsubmit">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="idPengirim">Pengirim Surat</label>
