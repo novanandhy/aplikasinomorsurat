@@ -75,6 +75,33 @@
 
             return $exist;
         }
+
+
+        public function tujuanSurat(Request $request)
+        {
+            $search = $request->get('query');
+            $result = Surat::select('tujuan_surat')->where('tujuan_surat', 'LIKE','%'.$search.'%')->get();
+
+            $data = array();
+            foreach ($result as $result) {
+                $data[]=$result->tujuan_surat;
+            }
+
+            return response()->json($data);
+        }
+
+        public function instansiSurat(Request $request)
+        {
+            $search = $request->get('query');
+            $result = Surat::select('tujuan_instansi')->where('tujuan_instansi', 'LIKE','%'.$search.'%')->get();
+
+            $data = array();
+            foreach ($result as $result) {
+                $data[]=$result->tujuan_instansi;
+            }
+
+            return response()->json($data);
+        }
     }
     
 
