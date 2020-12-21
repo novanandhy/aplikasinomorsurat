@@ -46,6 +46,7 @@
             </div>
             <hr/>
         </div>
+
         <div class="row justify-content-lg-center mt-5">
             <div class="col-lg-8 col-sm-12">
 
@@ -69,7 +70,7 @@
                 <br/>
 
                 <!-- form Aplikasi -->
-                <form  action="{{ route('aplikasi.store') }}" method="POST" id="formsubmit">
+                <form action="{{ route('surat.store') }}" method="POST" id="formsubmit">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="idPengirim">Pengirim Surat</label>

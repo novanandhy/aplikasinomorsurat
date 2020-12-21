@@ -14,10 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 // user previllage
-Route::get('/', 'App\Http\Controllers\BagianController@index');
-Route::get('/autocomplete_tujuan', 'App\Http\Controllers\SuratController@autocomplete_tujuan');
-Route::get('/autocomplete_instansi', 'App\Http\Controllers\SuratController@autocomplete_instansi');
-
+    Route::get('', 'App\Http\Controllers\BagianController@index');
     Route::get('admin', 'App\Http\Controllers\SuratController@admin');
+    Route::get('edit', 'App\Http\Controllers\SuratController@edit');
 
-    Route::resource('aplikasi','App\Http\Controllers\SuratController');
+
+    Route::get('autocomplete_tujuan', 'App\Http\Controllers\SuratController@autocomplete_tujuan');
+    Route::get('autocomplete_instansi', 'App\Http\Controllers\SuratController@autocomplete_instansi');
+
+    Route::resource('surat','App\Http\Controllers\SuratController');

@@ -72,18 +72,18 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($surat as $surat)
+                @foreach($surat as $surat )
                 <tr>
-                    <td>{{$surat->id}}</td>
-                    <td>{{$surat->bagian->nama_bagian}}</td>
-                    <td>{{$surat->tujuan_surat}}</td>
-                    <td>{{$surat->tujuan_instansi}}</td>
-                    <td>{{$surat->tanggal_surat}}</td>
-                    <td>{{$surat->kode_surat}}</td>
-                    <td>{{$surat->perihal_surat}}</td>
+                    <td>{{$surat ->id}}</td>
+                    <td>{{$surat ->bagian->nama_bagian}}</td>
+                    <td>{{$surat ->tujuan_surat}}</td>
+                    <td>{{$surat ->tujuan_instansi}}</td>
+                    <td>{{$surat ->tanggal_surat}}</td>
+                    <td>{{$surat ->kode_surat}}</td>
+                    <td>{{$surat ->perihal_surat}}</td>
                     <td>
                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal1"><i class="fa fa-trash-o"></i></button>
-                        <a href="/edit"><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-pencil"></i></button></a>
+                        <a href="{{ route('surat.edit', $surat->id) }}"><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-pencil"></i></button></a>
                     </td>
                 </tr>
                 @endforeach

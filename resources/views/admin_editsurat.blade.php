@@ -54,57 +54,63 @@
         <!-- form edit surat -->
         <div class="row justify-content-lg-center mt-5">
             <div class="col-lg-8 col-sm-12">
-                <form class="needs-validation" novalidate>
+
+                @if ($message = Session::get('error'))
+                <div class="alert alert-danger alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button> 
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
+
+                {{-- menampilkan error validasi --}}
+                @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                <br/>
+
+                <!-- form Aplikasi -->
+                <form action="{{ route('surat.update', $data['surat']->id) }}" method="POST">
+                    {{ csrf_field() }}
+                    @method('PATCH')
                     <div class="form-group">
-                        <select class="custom-select" id="idPengirim" required>
-                            <option selected disabled value="">Pilih Pengirim</option>
-                            <option>Subsi Umum dan Kepegawaian</option>
-                            <option>Subsi Keuangan dan Perlengkapan</option>
-                            <option>Tata Usaha</option>
-                            <option>Pengamanan Rutan</option>
-                            <option>Subsi Registrasi dan Perawatan</option>
-                            <option>Subsi Bantuan Hukum dan Penyuluhan</option>
-                            <option>Subsi Bimbingan Kerja</option>
+                        <label for="idPengirim">Pengirim Surat</label>
+                        <select class="custom-select" id="idPengirim" name="pengirim">
+                            <option selected value="{{ $data['surat']->id_pengirim }}">{{ $data['surat']->bagian->nama_bagian }}</option>
+                            @foreach($data['bagian'] as $bagian)
+                            <option value={{$bagian->id}}>{{$bagian->nama_bagian}}</option>    
+                            @endforeach
                         </select>
-                        <div class="invalid-feedback">
-                            Pengirim belum dipilih
-                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control typehead" id="idTujuanSurat" placeholder="Tujuan Surat" autocomplete="off" Required>
-                        <div class="invalid-feedback">
-                            Tujuan surat belum terisi
-                        </div>
+                        <label for="idTujuanSurat">Tujuan Surat</label>
+                        <input type="text" class="form-control" id="idTujuanSurat" placeholder="Tujuan Surat" name="tujuanSurat" value="{{ $data['surat']->tujuan_surat }}">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="idInstansiSurat" placeholder="Instansi Tujuan Surat" autocomplete="off" Required>
-                        <div class="invalid-feedback">
-                            Tujuan instansi surat belum terisi
-                        </div>
+                        <label for="idInstansiSurat">Tujuan Instansi Surat</label>
+                        <input type="text" class="form-control" id="idInstansiSurat" placeholder="Instansi Tujuan Surat" name="tujuanInstansi" value="{{ $data['surat']->tujuan_instansi }}">
                     </div>
                     <div class="form-group">
+                        <label for="tanggalSurat">Tanggal Surat</label>
                         <div class="input-group date">
-                            <input placeholder="Tanggal Surat" type="text" id="tanggalSurat" class="form-control datepicker" autocomplete="off" Required>
-                            <div class="invalid-feedback">
-                                Tanggal surat belum terisi
-                            </div>
-                        </div>
+                            <input placeholder="Tanggal Surat" type="text" id="tanggalSurat" class="form-control datepicker" name="tanggalSurat" value="{{ $data['surat']->tanggal_surat }}">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="kodeSurat" placeholder="Kode Surat" value="W15.PAS.PAS25-" autocomplete="off" Required>
-                        <div class="invalid-feedback">
-                            Kode Surat belum terisi
-                        </div>
+                        <label for="kodeSurat">Kode Surat</label>
+                        <input type="text" class="form-control" id="kodeSurat" placeholder="Kode Surat" name="kodeSurat" value="{{ $data['surat']->kode_surat }}">
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" id="perihalSurat" rows="3" placeholder="Perihal Surat" autocomplete="off" required></textarea>
-                        <div class="invalid-feedback">
-                            Perihal Surat belum terisi
-                        </div>
+                        <label for="perihalSurat">Perihal Surat</label>
+                        <input placeholder="Perihal Surat" type="text" id="perihalSurat" class="form-control " name="perihalSurat" value="{{ $data['surat']->perihal_surat }}">
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                        <button type="submit" class="btn btn-primary btn-lg">Nomor Surat</button>
+                            <button type="submit" class="btn btn-primary btn-lg" id="buttonSubmit" onclick="this.disabled=true;this.value='Proses...';this.form.submit()">Perbarui data</button>
                         </div>
                     </div>
                 </form>
@@ -114,7 +120,7 @@
     
 
     <script type="text/javascript">
-        
+
         // Datepciker JavaScript
         $(function(){
             $(".datepicker").datepicker({
@@ -124,25 +130,27 @@
             });
         });
 
-        // valid-invalid statement
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        $(function() {
-        'use strict';
-        window.addEventListener('load', function() {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-                if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            }, false);
-            });
-        }, false);
-        })();
+        // autocomple tujuan surat
+        var path_tujuan = "{{ url('autocomplete_tujuan') }}";
+        $('#idTujuanSurat').typeahead({
+            source:  function (query, process) {
+            return $.get(path_tujuan, { query: query }, function (data) {
+                    return process(data);
+                });
+            }
+        });
+
+        // autocomplete tujuan instansi
+        var path_instansi = "{{ url('autocomplete_instansi') }}";
+        $('#idInstansiSurat').typeahead({
+            source:  function (query, process) {
+            return $.get(path_instansi, { query: query }, function (data) {
+                    return process(data);
+                });
+            }
+        });
+
+        
     </script>
 
   </body>

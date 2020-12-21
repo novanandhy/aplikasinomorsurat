@@ -20,7 +20,7 @@ class SuratController extends Controller
 	public function index()
 	{
 		// mengambil data dari table bagian
-    	$bagian = $this.getAllBagian();
+    	$bagian = $this->getAllBagian();
  
     	// mengirim data bagian ke view user_aplikasi
     	return view('user_aplikasi', compact('bagian'));
@@ -39,7 +39,7 @@ class SuratController extends Controller
 		if($data === null){
 
 			//jika tidak terkirim data, maka akan kembali ke halaman awal aplikasi
-			return redirect()->route('aplikasi.index')->with('error','data surat telah ada');
+			return redirect()->route('surat.index')->with('error','data surat telah ada');
 			
 		}else{
 
@@ -49,9 +49,18 @@ class SuratController extends Controller
 	}
 
 	// menuju ke halaman edit
-	public function edit(Request $request)
+	public function edit($id)
 	{
-		return view('admin_editsurat', compact('request'));
+		$surat = $this->getSuratBy($id);
+
+		$bagian = $this->getAllBagian();
+
+		$data = array();
+
+		$data['surat'] = $surat;
+		$data['bagian'] = $bagian;
+
+		return view('admin_editsurat', ['data'=>$data]);
 	}
 
 	//  memperbarui alamat
@@ -61,18 +70,18 @@ class SuratController extends Controller
 		$this->validateForm($request);
 
 		// memanggil method updateSurat
-		$this.updateSurat($request, $id);
+		$this->updateSurat($request, $id);
 
-		return redirect()->route('aplikasi.admin')->with('success','data surat berhasil diperbarui');
+		return redirect('/admin');
 	}
 
 	// menghapus data
 	public function destroy($id)
 	{
 		//memanggil method deleteSurat
-		$this.deleteSurat($id);
+		$this->deleteSurat($id);
 
-		return redirect()->route('aplikasi.admin')->with('success','data surat berhasil dihapus');
+		return redirect()->route('surat.admin')->with('success','data surat berhasil dihapus');
 	}
 
 	// menampilkan halaman utama admin

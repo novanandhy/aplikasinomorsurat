@@ -23,7 +23,7 @@
 
         public function createSurat(request $request)
         {
-            if ($this.checkSuratExist($request) === NULL) {
+            if ($this->checkSuratExist($request) === NULL) {
                 
                 $surat = new Surat([
                     'id_pengirim' => $request->get('pengirim'),
@@ -58,7 +58,6 @@
             $surat->save();
 
             return $surat;
-
         }
 
         public function deleteSurat($id)
