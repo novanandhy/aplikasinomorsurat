@@ -234,7 +234,7 @@
         Chart.defaults.global.defaultFontSize = 18;
 
         var suratData = {
-            labels: ["januari 2020", "februari 2020", "maret 2020", "april 2020", "mei 2020", "juni 2020", "juli 2020"],
+            labels: ["januari 2020", "februari 2020", "maret 2020", "april 2020", "mei 2020", "juni 2020", "juli 2020", "februari 2020", "maret 2020", "april 2020", "mei 2020", "juni 2020", "juli 2020"],
             datasets: [{
                 label: "jumlah surat",
                 data: [0, 59, 75, 20, 200, 55, 40]

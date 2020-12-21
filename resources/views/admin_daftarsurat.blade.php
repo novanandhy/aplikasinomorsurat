@@ -53,7 +53,7 @@
         <!-- tombol cetak -->
         <div class="row text-right pb-1">
             <div class="col-md-2 offset-md-10">
-                <a href="/cetak"><button type="button" class="btn btn-primary btn-md"><i class="fa fa-print"></i> Cetak</button></a>
+                <a href="{{ route('surat.cetak') }}"><button type="button" class="btn btn-primary btn-md"><i class="fa fa-print"></i> Cetak</button></a>
             </div>
         </div>
 

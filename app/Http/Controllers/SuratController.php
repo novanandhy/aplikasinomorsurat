@@ -97,6 +97,11 @@ class SuratController extends Controller
 		return $this->tujuanSurat($request);
 	}
 
+	public function printData()
+	{
+		return view('admin_cetakrekapitulasi');
+	}
+
 	// menampilkan autocomplete tujuan instansi surat
 	public function autocomplete_instansi(Request $request)
 	{
