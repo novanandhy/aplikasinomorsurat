@@ -16,8 +16,7 @@ use Illuminate\Support\Facades\Route;
 // user previllage
     Route::get('', 'App\Http\Controllers\BagianController@index');
     Route::get('admin', 'App\Http\Controllers\SuratController@admin');
-    Route::get('edit', 'App\Http\Controllers\SuratController@edit');
-
+    Route::post('surat/delete','App\Http\Controllers\SuratController@delete')->name('surat.delete');
 
     Route::get('autocomplete_tujuan', 'App\Http\Controllers\SuratController@autocomplete_tujuan');
     Route::get('autocomplete_instansi', 'App\Http\Controllers\SuratController@autocomplete_instansi');

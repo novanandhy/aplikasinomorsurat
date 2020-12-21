@@ -3,13 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
 use App\Traits\SuratApi;
 use App\Traits\BagianApi;
-
-use App\Models\Surat;
-use App\Models\Bagian;
 
 class SuratController extends Controller
 {
@@ -72,16 +67,18 @@ class SuratController extends Controller
 		// memanggil method updateSurat
 		$this->updateSurat($request, $id);
 
-		return redirect('/admin');
+		return redirect('admin');
 	}
 
 	// menghapus data
-	public function destroy($id)
+	public function delete(Request $request)
 	{
+		$id = $request->input('surat_id');
+
 		//memanggil method deleteSurat
 		$this->deleteSurat($id);
 
-		return redirect()->route('surat.admin')->with('success','data surat berhasil dihapus');
+		return redirect('admin');
 	}
 
 	// menampilkan halaman utama admin

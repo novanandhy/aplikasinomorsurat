@@ -82,8 +82,8 @@
                     <td>{{$surat ->kode_surat}}</td>
                     <td>{{$surat ->perihal_surat}}</td>
                     <td>
-                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal1"><i class="fa fa-trash-o"></i></button>
-                        <a href="{{ route('surat.edit', $surat->id) }}"><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-pencil"></i></button></a>
+                        <button type="button" id="deleteSurat" class="btn btn-danger btn-sm" data-userid="{{ $surat->id }}"><i class="fa fa-trash-o"></i></button>
+                        <a href="{{ route('surat.edit', $surat->id) }}"><button type="button" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></button></a>
                     </td>
                 </tr>
                 @endforeach
@@ -100,13 +100,18 @@
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+                    
                     <div class="modal-body">
                         Apakah Anda Yakin Ingin Menghapus Data Ini ?
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-check"></i></button>
-                        <button type="button" class="btn btn-info"><i class="fa fa-times"></i></button>
-                    </div>
+                    <form action="{{ route('surat.delete') }}" method="post">
+                        @csrf
+                        <div class="modal-footer">
+                            <input type="hidden" name="surat_id" id="app_id">
+                            <button type="submit" class="btn btn-danger" id="submitbutton"><i class="fa fa-check"></i></button>
+                            <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -121,8 +126,10 @@
 
     <!--Modal JavaScript -->
     <script>
-      $('#myModal').on('shown.bs.modal', function () {
-            $('#myInput').trigger('focus');
+      $(document).on('click','#deleteSurat',function(){
+            var id = $(this).attr('data-userid');
+            $('#app_id').val(id); 
+            $('#modal1').modal('show'); 
         });
     </script>
 
